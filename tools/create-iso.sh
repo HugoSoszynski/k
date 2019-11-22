@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 iso_filename=$1
 base_dir=$2

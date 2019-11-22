@@ -22,14 +22,22 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 #include <k/kstd.h>
+#include <stdio.h>
 
 #include "multiboot.h"
+#include "serial.h"
+#include "gdt.h"
 
 
 void k_main(unsigned long magic, multiboot_info_t *info)
 {
 	(void)magic;
 	(void)info;
+
+	init_gdt();
+	init_serial();
+
+	printf("Hello World!\r\n");
 
 	char star[4] = "|/-\\";
 	char *fb = (void *)0xb8000;
